@@ -1,5 +1,16 @@
-This is Simon Says Game 
-Technologies includes -->
-   1) HTML
-   2) CSS
-   3) JS
+# 🎮 Simon Game
+
+A fun memory game inspired by the classic "Simon Says." Test your memory by repeating the pattern of blinking colors!
+
+## 🔗 Live Demo
+[Play the Simon Game](https://saumya25tyagi.github.io/DevProject1-SimonGame-/)
+
+## ✨ Features
+- Color pattern matching
+- Increasing difficulty with each round
+- Responsive UI
+- 
+## 🛠️ Technologies Used
+- HTML
+- CSS
+- JavaScript
