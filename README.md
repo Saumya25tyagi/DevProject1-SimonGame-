@@ -9,7 +9,7 @@ A fun memory game inspired by the classic "Simon Says." Test your memory by repe
 - Color pattern matching
 - Increasing difficulty with each round
 - Responsive UI
-- 
+- HIgh score feature
 ## 🛠️ Technologies Used
 - HTML
 - CSS
