@@ -1,20 +1,22 @@
 let gameSeq = [];
 let userSeq = [];
-let btns = ["yellow" , "red" , "purple" , "green"];
+const btns = ["yellow" , "red" , "purple" , "green"];
+let h2 = document.querySelector("h2");
 
 let started = false;
 let level = 0;
+let highScore = localStorage.getItem("highScore") || 0; //jab game start hoga toh agar local storage mai pahale se koi highscore pada hai toh usko highScore mai save karlo, otherwise 0.
 
-let h2 = document.querySelector("h2");
-
-document.addEventListener("keypress", function() {
-  if(started == false) {
+function startGame() {
+  if(started === false) {
     console.log("Game started");
     started = true;
-
     levelUp();
   }
-});
+}
+
+document.addEventListener("keypress", startGame);
+document.querySelector("#start-btn").addEventListener("click", startGame);
 
 function gameFlash(btn) {
   btn.classList.add("flash");
@@ -47,13 +49,17 @@ function levelUp() {
 }
 
 function checkAns(idx) {
-  if(userSeq[idx] == gameSeq[idx]) {
-    if(userSeq.length == gameSeq.length) {
+  if(userSeq[idx] === gameSeq[idx]) {
+    if(userSeq.length === gameSeq.length) {
       setTimeout(levelUp,1000);
     }
   }
   else{
-    h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any key to start`;
+    if(level > highScore) {
+      highScore = level;
+      localStorage.setItem("highScore", highScore);
+    }
+    h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>High Score: <b>${highScore}</b> <br>Press any key to start`;
     document.querySelector("body").style.backgroundColor = "red";
     setTimeout(function() {
       document.querySelector("body").style.backgroundColor = "white";
@@ -84,4 +90,3 @@ function reset() {
   userSeq = [];
   level = 0;
 }
-
